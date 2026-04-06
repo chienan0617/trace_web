@@ -182,6 +182,7 @@ class CompiledApp {
       _693: (module,f) => finalizeWrapper(f, function(x0) { return module.exports._693(f,arguments.length,x0) }),
       _694: (x0,x1) => x0.requestAnimationFrame(x1),
       _698: (x0,x1) => x0.warn(x1),
+      _700: (x0,x1) => x0.debug(x1),
       _701: x0 => globalThis.parseFloat(x0),
       _702: () => globalThis.window,
       _703: () => globalThis.Intl,
@@ -216,6 +217,7 @@ class CompiledApp {
       _759: x0 => x0.parentElement,
       _761: (x0,x1) => { x0.textContent = x1 },
       _762: x0 => x0.parentNode,
+      _763: x0 => x0.nextSibling,
       _764: (x0,x1) => x0.removeChild(x1),
       _765: x0 => x0.isConnected,
       _773: x0 => x0.clientHeight,
@@ -408,7 +410,16 @@ class CompiledApp {
       _1236: x0 => x0.selectedTrack,
       _1237: x0 => x0.repetitionCount,
       _1238: x0 => x0.frameCount,
+      _1286: (x0,x1) => x0.createElement(x1),
+      _1292: (x0,x1,x2) => x0.addEventListener(x1,x2),
       _1303: (x0,x1,x2,x3) => x0.open(x1,x2,x3),
+      _1304: x0 => x0.decode(),
+      _1305: (x0,x1,x2,x3) => x0.open(x1,x2,x3),
+      _1306: (x0,x1,x2) => x0.setRequestHeader(x1,x2),
+      _1307: (module,f) => finalizeWrapper(f, function(x0) { return module.exports._1307(f,arguments.length,x0) }),
+      _1308: (module,f) => finalizeWrapper(f, function(x0) { return module.exports._1308(f,arguments.length,x0) }),
+      _1309: x0 => x0.send(),
+      _1310: () => new XMLHttpRequest(),
       _1311: () => globalThis.Intl.DateTimeFormat(),
       _1312: x0 => x0.resolvedOptions(),
       _1313: () => globalThis.Intl.supportedValuesOf,
@@ -426,6 +437,13 @@ class CompiledApp {
       _1322: () => typeof dartUseDateNowForTicks !== "undefined",
       _1323: () => 1000 * performance.now(),
       _1324: () => Date.now(),
+      _1325: () => {
+        // On browsers return `globalThis.location.href`
+        if (globalThis.location != null) {
+          return globalThis.location.href;
+        }
+        return null;
+      },
       _1327: () => new WeakMap(),
       _1328: (map, o) => map.get(o),
       _1329: (map, o, v) => map.set(o, v),
@@ -480,9 +498,12 @@ class CompiledApp {
       _1458: (ms, c) =>
       setTimeout(() => dartInstance.exports.$invokeCallback(c),ms),
       _1459: (handle) => clearTimeout(handle),
+      _1460: (ms, c) =>
+      setInterval(() => dartInstance.exports.$invokeCallback(c), ms),
       _1461: (handle) => clearInterval(handle),
       _1462: (c) =>
       queueMicrotask(() => dartInstance.exports.$invokeCallback(c)),
+      _1463: () => Date.now(),
       _1464: (s, m) => {
         try {
           return new RegExp(s, m);
@@ -708,6 +729,18 @@ class CompiledApp {
       _1652: Function.prototype.call.bind(BigInt.prototype.toString),
       _1653: Function.prototype.call.bind(Number.prototype.toString),
       _1654: (d, digits) => d.toFixed(digits),
+      _1670: () => globalThis.document,
+      _1676: (x0,x1) => { x0.height = x1 },
+      _1678: (x0,x1) => { x0.width = x1 },
+      _1680: (x0,x1) => { x0.pointerEvents = x1 },
+      _1689: x0 => x0.style,
+      _1692: x0 => x0.src,
+      _1693: (x0,x1) => { x0.src = x1 },
+      _1694: x0 => x0.naturalWidth,
+      _1695: x0 => x0.naturalHeight,
+      _1711: x0 => x0.status,
+      _1712: (x0,x1) => { x0.responseType = x1 },
+      _1714: x0 => x0.response,
       _3546: () => globalThis.window,
       _3585: x0 => x0.self,
       _3608: x0 => x0.navigator,
