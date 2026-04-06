@@ -81,8 +81,8 @@
     /* ================= 新增：現代感載入條的 CSS 樣式 ================= */
     #custom-loader {
       position: absolute;
-      top: 65%;
-      /* 放在中央圖片的正下方 */
+      top: 75%;
+      /* 修改：將 65% 改為 75% 以增加與上方圖標的距離 */
       left: 50%;
       transform: translate(-50%, -50%);
       width: 200px;
@@ -107,7 +107,8 @@
       /* 使用漸層創造兩側淡化、中間明亮的質感 */
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
       border-radius: 4px;
-      animation: shimmer 1.5s infinite ease-in-out;
+      /* 修改：加入 alternate 讓動畫來回播放，並微調時間為 1.2s */
+      animation: shimmer 1.2s infinite alternate ease-in-out;
     }
 
     @keyframes shimmer {

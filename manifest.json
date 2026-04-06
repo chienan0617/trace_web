@@ -1,6 +1,6 @@
 {
-    "name": "trace",
-    "short_name": "trace",
+    "name": "Trace - Capture the moment",
+    "short_name": "Trace",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#F3F3F1",
